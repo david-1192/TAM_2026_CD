@@ -1,6 +1,7 @@
 # 🧠 Teoría de Aprendizaje de Máquina (2026)
 
 Repositorio académico correspondiente a la asignatura **Teoría de Aprendizaje de Máquina (Machine Learning Theory)** del periodo 2026. Aquí se centralizan talleres prácticos, evaluaciones parciales, ejercicios desarrollados en clase y el proyecto final del curso.
+## *CRISTIAN DAVID CHALACA SALAS*
 
 ---
 
