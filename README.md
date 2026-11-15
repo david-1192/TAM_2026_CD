@@ -31,7 +31,7 @@ TAM_2026/
 ### 1. Taller 1: Estadísticas Matriciales y Métodos de Kernel (`TAM_TALLER1_CLASE.ipynb`)
 Exploración de álgebra lineal estadística y funciones de kernel aplicadas al conjunto de datos **MNIST** ($28 \times 28 \rightarrow 784$ características):
 - **Espacio de características ($P \times P$):** Formulación matricial desde cero del vector de medias ($\mu$), centrado de datos y cálculo de las matrices de covarianza y correlación de Pearson ($784 \times 784$).
-- **Espacio de muestras ($N \times N$) y Kernels:** Evaluación de similitud entre observaciones mediante el **Kernel Lineal** y el **Kernel Gaussiano (RBF)** ($K_{i,j} = \exp(-\gamma \|x_i - x_j\|^2)$), incluyendo la fundamentación matemática y visualización de mapas de calor para la covarianza ($Cov_K$) y correlación ($R_K$) en el espacio inducido por el kernel.
+- **Espacio de muestras ($N \times N$) y Kernels:** Evaluación de similitud entre observaciones mediante el **Kernel Lineal** y el **Kernel Gaussiano (RBF)** $K_{i,j} = \exp(-\gamma \|x_i - x_j\|^2)$), incluyendo la fundamentación matemática y visualización de mapas de calor para la covarianza ($Cov_K$) y correlación ($R_K$) en el espacio inducido por el kernel.
 
 ### 2. Taller 2: Regresión Polinomial y Paradigmas de Estimación (`TAM_TALLER2_CLASE.ipynb`)
 Modelado, contaminación y reconstrucción de una señal armónica ($y(x) = \text{sen}(2\pi x)$) para contrastar enfoques frecuentistas y bayesianos:
