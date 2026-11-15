@@ -16,6 +16,8 @@ TAM_2026/
 │   ├── PARCIAL_1_TAM_CD.ipynb        # Parcial 1 (Práctico): Validación numérica de Estimadores y MMD
 │   └── PARCIAL_1_TAM_CD.pdf          # Parcial 1 (Teórico): Deducciones matemáticas en Regresión, RKHS y MMD
 ├── 03_TRABAJO-CLASES/                # Notebooks, laboratorios y apuntes de clase
+│   ├── TAM_Taller_Alternativo.pdf    # Taller Alternativo (Teórico): Perceptrón, k-NN y Métricas de Clasificación
+│   └── Taller_Alternativo.ipynb      # Taller Alternativo (Práctico): Implementación de Perceptrón, k-NN y Evaluación
 ├── 04_PROYECTO_FINAL/                # Desarrollo, documentación y código del proyecto final
 ├── .gitignore                        # Archivos y directorios excluidos del control de versiones
 ├── README.md                         # Documentación principal del repositorio
@@ -54,6 +56,23 @@ Entrega compuesta por el documento teórico de demostraciones matemáticas (`PAR
 3. **Pregunta 3 — Índice de Correlación de Pearson y Alineamiento Centrado en RKHS (`PDF`):**
    - **Desarrollo Teórico:** Formulación matricial del coeficiente de correlación de Pearson muestral $\hat{\rho}_{XY} = \frac{\mathbf{x}^\top\mathbf{H}\mathbf{y}}{\sqrt{(\mathbf{x}^\top\mathbf{H}\mathbf{x})(\mathbf{y}^\top\mathbf{H}\mathbf{y})}}$ empleando la matriz de centrado $\mathbf{H} = \mathbf{I}_N - \frac{1}{N}\mathbf{1}_N\mathbf{1}_N^\top$ (simétrica e idempotente).
    - **Alineamiento de Kernels:** Deducción del alineamiento centrado en RKHS a partir del producto interno de Frobenius y propiedades cíclicas de la traza: $\rho_{\text{RKHS}}(\mathbf{K}_X, \mathbf{K}_Y) = \frac{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_Y\mathbf{H})}{\sqrt{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_X\mathbf{H})\text{tr}(\mathbf{K}_Y\mathbf{H}\mathbf{K}_Y\mathbf{H})}}$, demostrando que para kernels lineales unidimensionales ($P=Q=1$) se cumple $\rho_{\text{RKHS}} = \hat{\rho}_{XY}^2$ y explicando la pérdida de orientación del signo.
+
+---
+
+## 💻 Trabajo en Clases (`03_TRABAJO-CLASES/`)
+
+### Taller Alternativo: Clasificación Supervisada, Vecinos Cercanos y Evaluación de Modelos
+Solución teórico-práctica (`TAM_Taller_Alternativo.pdf` y `Taller_Alternativo.ipynb`) centrada en algoritmos fundamentales de clasificación y métricas de desempeño:
+
+1. **Punto 1 — Clasificación Lineal y Algoritmo del Perceptrón:**
+   - Cálculo analítico y visualización de la frontera de decisión lineal ($w^\top x + b = 0$) para clasificación binaria.
+   - Demostración matemática de la regla de actualización del perceptrón ($w_{\text{nuevo}} = w + \eta y_i x_i$, $b_{\text{nuevo}} = b + \eta y_i$), probando que el margen funcional de una muestra mal clasificada incrementa estrictamente en $m_{i,\text{nuevo}} = m_i + \eta(\|x_i\|_2^2 + 1) > m_i$, acompañado de verificación numérica paso a paso.
+2. **Punto 2 — Clasificación por los $k$ Vecinos Más Cercanos ($k$-NN):**
+   - Cálculo manual de distancias euclidianas y asignación por votación mayoritaria para distintos tamaños de vecindad ($k = 1, 3$).
+   - Evaluación experimental sobre el conjunto sintético no lineal `make_moons` (partición estratificada 70/30) para $k \in \{1, 5, 15\}$, visualizando las regiones de decisión y analizando el compromiso sesgo-varianza (*overfitting* en $k=1$, suavizado y generalización óptima en $k=5$, y riesgo de *underfitting* al incrementar $k$).
+3. **Punto 3 — Evaluación de un Clasificador Binario:**
+   - Construcción manual y computacional (`scikit-learn`) de la **Matriz de Confusión** ($\text{TP}, \text{TN}, \text{FP}, \text{FN}$) y cálculo de **Accuracy** ($70\%$), **Precision** ($80\%$), **Recall / Sensibilidad** ($66.67\%$) y **$F_1$-score** ($72.73\%$).
+   - Análisis crítico de escenarios donde la exactitud (*Accuracy*) resulta engañosa: conjuntos de datos altamente desbalanceados y problemas con costos de error asimétricos.
 
 ---
 
