@@ -13,6 +13,8 @@ TAM_2026/
 │   ├── TAM_TALLER1_CLASE.ipynb       # Taller 1: Covarianza, Correlación y Kernels (MNIST)
 │   └── TAM_TALLER2_CLASE.ipynb       # Taller 2: Regresión Polinomial y Estimadores (OLS, Ridge, ML, MAP)
 ├── 02_PARCIALES/                     # Evaluaciones parciales y soluciones
+│   ├── PARCIAL_1_TAM_CD.ipynb        # Parcial 1 (Práctico): Validación numérica de Estimadores y MMD
+│   └── PARCIAL_1_TAM_CD.pdf          # Parcial 1 (Teórico): Deducciones matemáticas en Regresión, RKHS y MMD
 ├── 03_TRABAJO-CLASES/                # Notebooks, laboratorios y apuntes de clase
 ├── 04_PROYECTO_FINAL/                # Desarrollo, documentación y código del proyecto final
 ├── .gitignore                        # Archivos y directorios excluidos del control de versiones
@@ -33,6 +35,25 @@ Exploración de álgebra lineal estadística y funciones de kernel aplicadas al 
 Modelado, contaminación y reconstrucción de una señal armónica ($y(x) = \text{sen}(2\pi x)$) para contrastar enfoques frecuentistas y bayesianos:
 - **Simulación de entorno ruidoso y expansión de base:** Adición de **Ruido Blanco Gaussiano Aditivo (AWGN)** controlado por $SNR_{dB}$ y construcción de la matriz de diseño polinomial de Vandermonde ($\Phi$).
 - **Comparación de estimadores:** Análisis teórico y experimental de **Mínimos Cuadrados Ordinarios (OLS)**, **Regresión Ridge ($L_2$ / Tikhonov)**, **Máxima Verosimilitud (ML)** y **Máximo a Posteriori (MAP)**. Se demuestra el fenómeno de sobreajuste (*overfitting*) sin regularización y se verifica numéricamente la equivalencia $\text{OLS} \equiv \text{ML}$ (bajo ruido gaussiano) y $\text{Ridge} \equiv \text{MAP}$ (con prior gaussiano sobre los pesos).
+
+---
+
+## 📄 Evaluaciones Parciales (`02_PARCIALES/`)
+
+### Parcial 1: Regresión en Espacios de Características, RKHS, MMD y Alineamiento de Kernels
+Entrega compuesta por el documento teórico de demostraciones matemáticas (`PARCIAL_1_TAM_CD.pdf`) y el notebook de implementación y validación experimental (`PARCIAL_1_TAM_CD.ipynb`):
+
+1. **Pregunta 1 — Regresión en Espacios de Características (`PDF` + `Notebook`):**
+   - **Desarrollo Teórico:** Deducción matricial paso a paso de las soluciones cerradas para **OLS**, **Regresión Ridge ($L_2$)**, **Máxima Verosimilitud (MLE)** y **Máximo a Posteriori (MAP)**; análisis de condiciones de existencia, unicidad y convexidad estricta (matriz Hessiana $\mathbf{H} = \mathbf{\Phi}^\top\mathbf{\Phi}$), efecto estabilizador de $\lambda$ y demostración formal de las equivalencias $\text{OLS} \equiv \text{MLE}$ y $\text{Ridge} \equiv \text{MAP}$ ($\lambda = \sigma_\eta^2 / \sigma_w^2$).
+   - **Validación Numérica:** Expansión polinomial no lineal de $P = 5$ a $Q = 20$ características ($N = 300$, partición 80/20), verificando computacionalmente la coincidencia exacta en $\text{MSE}_{\text{train}}$, $\text{MSE}_{\text{test}}$ y error de estimación $\|\hat{\mathbf{w}} - \mathbf{w}_*\|_2$ (diferencias del orden de precisión de máquina $\approx 10^{-16}$).
+
+2. **Pregunta 2 — Espacios RKHS, Embeddings de Media y Discrepancia Máxima de Medias (MMD) (`PDF` + `Notebook`):**
+   - **Desarrollo Teórico:** Definición rigurosa del *kernel mean embedding* $\mu_k = \mathbb{E}_{X}[\phi(X)] \in \mathcal{H}_k$ mediante la integral de Bochner, demostración de pertenencia al RKHS vía el **Teorema de Representación de Riesz**, e interpretación geométrica (inyectividad y codificación de momentos con kernels característicos). Deducción de la formulación poblacional, empírica sesgada ($\text{MMD}_b^2$) y su expresión cuadrática matricial $\frac{1}{n^2}\mathbf{1}_n^\top \mathbf{K}_{XX}\mathbf{1}_n + \frac{1}{m^2}\mathbf{1}_m^\top \mathbf{K}_{YY}\mathbf{1}_m - \frac{2}{nm}\mathbf{1}_n^\top \mathbf{K}_{XY}\mathbf{1}_m$.
+   - **Experimento MNIST vs. Fashion-MNIST:** Evaluación empírica con muestras balanceadas ($n = m = 500$, $P = 784$) y kernel Gaussiano RBF sintonizado con la **Heurística de la Mediana** ($\sigma = 11.2255$), contrastando la discrepancia inter-distribución ($\approx 0.1316$) frente a comparaciones intra-distribución ($\approx 0.001$) y discutiendo el uso de pruebas de permutación.
+
+3. **Pregunta 3 — Índice de Correlación de Pearson y Alineamiento Centrado en RKHS (`PDF`):**
+   - **Desarrollo Teórico:** Formulación matricial del coeficiente de correlación de Pearson muestral $\hat{\rho}_{XY} = \frac{\mathbf{x}^\top\mathbf{H}\mathbf{y}}{\sqrt{(\mathbf{x}^\top\mathbf{H}\mathbf{x})(\mathbf{y}^\top\mathbf{H}\mathbf{y})}}$ empleando la matriz de centrado $\mathbf{H} = \mathbf{I}_N - \frac{1}{N}\mathbf{1}_N\mathbf{1}_N^\top$ (simétrica e idempotente).
+   - **Alineamiento de Kernels:** Deducción del alineamiento centrado en RKHS a partir del producto interno de Frobenius y propiedades cíclicas de la traza: $\rho_{\text{RKHS}}(\mathbf{K}_X, \mathbf{K}_Y) = \frac{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_Y\mathbf{H})}{\sqrt{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_X\mathbf{H})\text{tr}(\mathbf{K}_Y\mathbf{H}\mathbf{K}_Y\mathbf{H})}}$, demostrando que para kernels lineales unidimensionales ($P=Q=1$) se cumple $\rho_{\text{RKHS}} = \hat{\rho}_{XY}^2$ y explicando la pérdida de orientación del signo.
 
 ---
 
