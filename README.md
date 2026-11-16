@@ -16,6 +16,8 @@ TAM_2026/
 │   ├── PARCIAL_1_TAM_CD.ipynb        # Parcial 1 (Práctico): Validación numérica de Estimadores y MMD
 │   └── PARCIAL_1_TAM_CD.pdf          # Parcial 1 (Teórico): Deducciones matemáticas en Regresión, RKHS y MMD
 ├── 03_TRABAJO-CLASES/                # Notebooks, laboratorios y apuntes de clase
+│   ├── RED_DENSA_CONVOLUCIONAL.ipynb # Taller Comparativo: Red Densa (MLP) vs. Red Convolucional (CNN) en MNIST
+│   ├── README.md                     # Documentación detallada de los trabajos en clase
 │   ├── TAM_Taller_Alternativo.pdf    # Taller Alternativo (Teórico): Perceptrón, k-NN y Métricas de Clasificación
 │   └── Taller_Alternativo.ipynb      # Taller Alternativo (Práctico): Implementación de Perceptrón, k-NN y Evaluación
 ├── 04_PROYECTO_FINAL/                # Desarrollo, documentación y código del proyecto final
@@ -73,6 +75,19 @@ Solución teórico-práctica (`TAM_Taller_Alternativo.pdf` y `Taller_Alternativo
 3. **Punto 3 — Evaluación de un Clasificador Binario:**
    - Construcción manual y computacional (`scikit-learn`) de la **Matriz de Confusión** ($\text{TP}, \text{TN}, \text{FP}, \text{FN}$) y cálculo de **Accuracy** ($70\%$), **Precision** ($80\%$), **Recall / Sensibilidad** ($66.67\%$) y **$F_1$-score** ($72.73\%$).
    - Análisis crítico de escenarios donde la exactitud (*Accuracy*) resulta engañosa: conjuntos de datos altamente desbalanceados y problemas con costos de error asimétricos.
+
+### Taller Comparativo: Redes Neuronales Densas (MLP) vs. Redes Convolucionales (CNN) (`RED_DENSA_CONVOLUCIONAL.ipynb`)
+Implementación, entrenamiento y evaluación comparativa en **TensorFlow / Keras** sobre el conjunto de datos **MNIST** ($60{,}000$ imágenes de entrenamiento y $10{,}000$ de prueba):
+
+1. **Preprocesamiento y Estructuración de Datos:**
+   - Normalización de intensidades de píxeles al rango $[0, 1]$ (`float32`) y adecuación dimensional independiente según la topología de entrada: vectores aplanados de $\mathbb{R}^{784}$ para la red densa y tensores espaciales de $28 \times 28 \times 1$ para la red convolucional.
+2. **Arquitecturas Evaluadas (15 épocas, `batch_size=32`, optimizador `Adam`, `validation_split=0.1`):**
+   - **Red Densa (`model_dense`):** Entrada $(784,) \rightarrow \text{Dense}(64, \text{ReLU}) \rightarrow \text{Dense}(64, \text{ReLU}) \rightarrow \text{Dense}(10, \text{Softmax})$.
+   - **Red Convolucional (`model_conv`):** Entrada $(28, 28, 1) \rightarrow \text{Conv2D}(32, 3\times3, \text{ReLU}, \text{same}) \rightarrow \text{MaxPool2D}(2\times2) \rightarrow \text{Conv2D}(64, 3\times3, \text{ReLU}, \text{same}) \rightarrow \text{MaxPool2D}(2\times2) \rightarrow \text{Flatten} \rightarrow \text{Dense}(10, \text{Softmax})$.
+3. **Comparativa de Rendimiento y Curvas de Aprendizaje:**
+   - Contraste cuantitativo entre entrenamiento y prueba: la **Red Convolucional** alcanza un **Accuracy en prueba de $98.92\%$** ($\text{Loss} = 0.0479$), superando a la **Red Densa** que obtiene **$97.76\%$** ($\text{Loss} = 0.1038$), evidenciando la ventaja de preservar la estructura espacial local mediante filtros convolucionales y *pooling*.
+4. **Pipeline de Inferencia con Imágenes Externas:**
+   - Función automatizada (`predecir_imagen_externa`) para clasificar dígitos manuscritos externos con conversión a escala de grises, redimensionamiento Lanczos ($28 \times 28$), inversión inteligente de fondo claro, limpieza de ruido por umbralización suave y visualización comparativa de distribuciones de probabilidad.
 
 ---
 
