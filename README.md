@@ -1,129 +1,68 @@
-# 🧠 Teoría de Aprendizaje de Máquina (2026)
+# Teoría de Aprendizaje de Máquina (2026)
 
-Repositorio académico correspondiente a la asignatura **Teoría de Aprendizaje de Máquina (Machine Learning Theory)** del periodo 2026. Aquí se centralizan talleres prácticos, evaluaciones parciales, ejercicios desarrollados en clase y el proyecto final del curso.
-## *CRISTIAN DAVID CHALACA SALAS*
+**Autor:** Cristian David Chalaca Salas
+
+Repositorio académico correspondiente a la asignatura **Teoría de Aprendizaje de Máquina (2026)**. Centraliza los talleres prácticos, evaluaciones parciales, actividades desarrolladas en clase y el espacio destinado al proyecto final del curso, manteniendo la documentación técnica detallada dentro de cada directorio.
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del repositorio
 
 ```text
 TAM_2026/
-├── 01_TALLERES/                      # Talleres prácticos y entregas programadas
-│   ├── TAM_TALLER1_CLASE.ipynb       # Taller 1: Covarianza, Correlación y Kernels (MNIST)
-│   └── TAM_TALLER2_CLASE.ipynb       # Taller 2: Regresión Polinomial y Estimadores (OLS, Ridge, ML, MAP)
-├── 02_PARCIALES/                     # Evaluaciones parciales y soluciones
-│   ├── PARCIAL_1_TAM_CD.ipynb        # Parcial 1 (Práctico): Validación numérica de Estimadores y MMD
-│   └── PARCIAL_1_TAM_CD.pdf          # Parcial 1 (Teórico): Deducciones matemáticas en Regresión, RKHS y MMD
-├── 03_TRABAJO-CLASES/                # Notebooks, laboratorios y apuntes de clase
-│   ├── RED_DENSA_CONVOLUCIONAL.ipynb # Taller Comparativo: Red Densa (MLP) vs. Red Convolucional (CNN) en MNIST
-│   ├── README.md                     # Documentación detallada de los trabajos en clase
-│   ├── TAM_Taller_Alternativo.pdf    # Taller Alternativo (Teórico): Perceptrón, k-NN y Métricas de Clasificación
-│   └── Taller_Alternativo.ipynb      # Taller Alternativo (Práctico): Implementación de Perceptrón, k-NN y Evaluación
-├── 04_PROYECTO_FINAL/                # Desarrollo, documentación y código del proyecto final
-├── .gitignore                        # Archivos y directorios excluidos del control de versiones
-├── README.md                         # Documentación principal del repositorio
-└── subir.sh                          # Script automatizado para agregar, confirmar y subir cambios
+├── 01_TALLERES/          # Talleres prácticos y cuadernos de análisis
+├── 02_PARCIALES/         # Evaluaciones parciales teóricas y prácticas
+├── 03_TRABAJO-CLASES/    # Laboratorios, talleres en clase y comparativas
+├── 04_PROYECTO_FINAL/    # Espacio reservado para el proyecto final
+├── .gitignore            # Reglas de exclusión del control de versiones
+├── README.md             # Presentación general e índice del repositorio
+└── subir.sh              # Script de automatización para Git
 ```
 
 ---
 
-## 📓 Descripción de Talleres (`01_TALLERES/`)
+## Contenido por carpeta
 
-### 1. Taller 1: Estadísticas Matriciales y Métodos de Kernel (`TAM_TALLER1_CLASE.ipynb`)
-Exploración de álgebra lineal estadística y funciones de kernel aplicadas al conjunto de datos **MNIST** ($28 \times 28 \rightarrow 784$ características):
-- **Espacio de características ($P \times P$):** Formulación matricial desde cero del vector de medias ($\mu$), centrado de datos y cálculo de las matrices de covarianza y correlación de Pearson ($784 \times 784$).
-- **Espacio de muestras ($N \times N$) y Kernels:** Evaluación de similitud entre observaciones mediante el **Kernel Lineal** y el **Kernel Gaussiano (RBF)** $K_{i,j} = \exp(-\gamma \|x_i - x_j\|^2)$), incluyendo la fundamentación matemática y visualización de mapas de calor para la covarianza ($Cov_K$) y correlación ($R_K$) en el espacio inducido por el kernel.
-
-### 2. Taller 2: Regresión Polinomial y Paradigmas de Estimación (`TAM_TALLER2_CLASE.ipynb`)
-Modelado, contaminación y reconstrucción de una señal armónica ($y(x) = \text{sen}(2\pi x)$) para contrastar enfoques frecuentistas y bayesianos:
-- **Simulación de entorno ruidoso y expansión de base:** Adición de **Ruido Blanco Gaussiano Aditivo (AWGN)** controlado por $SNR_{dB}$ y construcción de la matriz de diseño polinomial de Vandermonde ($\Phi$).
-- **Comparación de estimadores:** Análisis teórico y experimental de **Mínimos Cuadrados Ordinarios (OLS)**, **Regresión Ridge ($L_2$ / Tikhonov)**, **Máxima Verosimilitud (ML)** y **Máximo a Posteriori (MAP)**. Se demuestra el fenómeno de sobreajuste (*overfitting*) sin regularización y se verifica numéricamente la equivalencia $\text{OLS} \equiv \text{ML}$ (bajo ruido gaussiano) y $\text{Ridge} \equiv \text{MAP}$ (con prior gaussiano sobre los pesos).
+- [01_TALLERES/](./01_TALLERES/) — Talleres prácticos sobre estadísticas matriciales, métodos de kernel, regresión polinomial y regularización. Consultar [01_TALLERES/README.md](./01_TALLERES/README.md) para los detalles metodológicos y matemáticos.
+- [02_PARCIALES/](./02_PARCIALES/) — Evaluaciones parciales que integran demostraciones teóricas en PDF y validaciones numéricas en notebooks sobre estimadores, RKHS, MMD y alineamiento de kernels. Consultar [02_PARCIALES/README.md](./02_PARCIALES/README.md).
+- [03_TRABAJO-CLASES/](./03_TRABAJO-CLASES/) — Laboratorios y talleres en clase enfocados en clasificación supervisada (perceptrón, $k$-NN, métricas) y comparación entre redes neuronales densas y convolucionales. Consultar [03_TRABAJO-CLASES/README.md](./03_TRABAJO-CLASES/README.md).
+- [04_PROYECTO_FINAL/](./04_PROYECTO_FINAL/) — Directorio destinado al futuro desarrollo y documentación del proyecto final del curso. Ver [04_PROYECTO_FINAL/README.md](./04_PROYECTO_FINAL/README.md).
 
 ---
 
-## 📄 Evaluaciones Parciales (`02_PARCIALES/`)
+## Herramientas y tecnologías
 
-### Parcial 1: Regresión en Espacios de Características, RKHS, MMD y Alineamiento de Kernels
-Entrega compuesta por el documento teórico de demostraciones matemáticas (`PARCIAL_1_TAM_CD.pdf`) y el notebook de implementación y validación experimental (`PARCIAL_1_TAM_CD.ipynb`):
-
-1. **Pregunta 1 — Regresión en Espacios de Características (`PDF` + `Notebook`):**
-   - **Desarrollo Teórico:** Deducción matricial paso a paso de las soluciones cerradas para **OLS**, **Regresión Ridge ($L_2$)**, **Máxima Verosimilitud (MLE)** y **Máximo a Posteriori (MAP)**; análisis de condiciones de existencia, unicidad y convexidad estricta (matriz Hessiana $\mathbf{H} = \mathbf{\Phi}^\top\mathbf{\Phi}$), efecto estabilizador de $\lambda$ y demostración formal de las equivalencias $\text{OLS} \equiv \text{MLE}$ y $\text{Ridge} \equiv \text{MAP}$ ($\lambda = \sigma_\eta^2 / \sigma_w^2$).
-   - **Validación Numérica:** Expansión polinomial no lineal de $P = 5$ a $Q = 20$ características ($N = 300$, partición 80/20), verificando computacionalmente la coincidencia exacta en $\text{MSE}_{\text{train}}$, $\text{MSE}_{\text{test}}$ y error de estimación $\|\hat{\mathbf{w}} - \mathbf{w}_*\|_2$ (diferencias del orden de precisión de máquina $\approx 10^{-16}$).
-
-2. **Pregunta 2 — Espacios RKHS, Embeddings de Media y Discrepancia Máxima de Medias (MMD) (`PDF` + `Notebook`):**
-   - **Desarrollo Teórico:** Definición rigurosa del *kernel mean embedding* $\mu_k = \mathbb{E}_{X}[\phi(X)] \in \mathcal{H}_k$ mediante la integral de Bochner, demostración de pertenencia al RKHS vía el **Teorema de Representación de Riesz**, e interpretación geométrica (inyectividad y codificación de momentos con kernels característicos). Deducción de la formulación poblacional, empírica sesgada ($\text{MMD}_b^2$) y su expresión cuadrática matricial $\frac{1}{n^2}\mathbf{1}_n^\top \mathbf{K}_{XX}\mathbf{1}_n + \frac{1}{m^2}\mathbf{1}_m^\top \mathbf{K}_{YY}\mathbf{1}_m - \frac{2}{nm}\mathbf{1}_n^\top \mathbf{K}_{XY}\mathbf{1}_m$.
-   - **Experimento MNIST vs. Fashion-MNIST:** Evaluación empírica con muestras balanceadas ($n = m = 500$, $P = 784$) y kernel Gaussiano RBF sintonizado con la **Heurística de la Mediana** ($\sigma = 11.2255$), contrastando la discrepancia inter-distribución ($\approx 0.1316$) frente a comparaciones intra-distribución ($\approx 0.001$) y discutiendo el uso de pruebas de permutación.
-
-3. **Pregunta 3 — Índice de Correlación de Pearson y Alineamiento Centrado en RKHS (`PDF`):**
-   - **Desarrollo Teórico:** Formulación matricial del coeficiente de correlación de Pearson muestral $\hat{\rho}_{XY} = \frac{\mathbf{x}^\top\mathbf{H}\mathbf{y}}{\sqrt{(\mathbf{x}^\top\mathbf{H}\mathbf{x})(\mathbf{y}^\top\mathbf{H}\mathbf{y})}}$ empleando la matriz de centrado $\mathbf{H} = \mathbf{I}_N - \frac{1}{N}\mathbf{1}_N\mathbf{1}_N^\top$ (simétrica e idempotente).
-   - **Alineamiento de Kernels:** Deducción del alineamiento centrado en RKHS a partir del producto interno de Frobenius y propiedades cíclicas de la traza: $\rho_{\text{RKHS}}(\mathbf{K}_X, \mathbf{K}_Y) = \frac{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_Y\mathbf{H})}{\sqrt{\text{tr}(\mathbf{K}_X\mathbf{H}\mathbf{K}_X\mathbf{H})\text{tr}(\mathbf{K}_Y\mathbf{H}\mathbf{K}_Y\mathbf{H})}}$, demostrando que para kernels lineales unidimensionales ($P=Q=1$) se cumple $\rho_{\text{RKHS}} = \hat{\rho}_{XY}^2$ y explicando la pérdida de orientación del signo.
+- **Lenguaje y notebooks:** Python 3.10+, Jupyter Notebook / JupyterLab.
+- **Cálculo numérico y análisis de datos:** `numpy`, `scipy`, `pandas`.
+- **Visualización:** `matplotlib`, `seaborn`.
+- **Aprendizaje de máquina y profundo:** `scikit-learn`, `tensorflow` / `keras`.
+- **Control de versiones:** Git y GitHub.
 
 ---
 
-## 💻 Trabajo en Clases (`03_TRABAJO-CLASES/`)
+## Flujo de trabajo
 
-### Taller Alternativo: Clasificación Supervisada, Vecinos Cercanos y Evaluación de Modelos
-Solución teórico-práctica (`TAM_Taller_Alternativo.pdf` y `Taller_Alternativo.ipynb`) centrada en algoritmos fundamentales de clasificación y métricas de desempeño:
-
-1. **Punto 1 — Clasificación Lineal y Algoritmo del Perceptrón:**
-   - Cálculo analítico y visualización de la frontera de decisión lineal ($w^\top x + b = 0$) para clasificación binaria.
-   - Demostración matemática de la regla de actualización del perceptrón ($w_{\text{nuevo}} = w + \eta y_i x_i$, $b_{\text{nuevo}} = b + \eta y_i$), probando que el margen funcional de una muestra mal clasificada incrementa estrictamente en $m_{i,\text{nuevo}} = m_i + \eta(\|x_i\|_2^2 + 1) > m_i$, acompañado de verificación numérica paso a paso.
-2. **Punto 2 — Clasificación por los $k$ Vecinos Más Cercanos ($k$-NN):**
-   - Cálculo manual de distancias euclidianas y asignación por votación mayoritaria para distintos tamaños de vecindad ($k = 1, 3$).
-   - Evaluación experimental sobre el conjunto sintético no lineal `make_moons` (partición estratificada 70/30) para $k \in \{1, 5, 15\}$, visualizando las regiones de decisión y analizando el compromiso sesgo-varianza (*overfitting* en $k=1$, suavizado y generalización óptima en $k=5$, y riesgo de *underfitting* al incrementar $k$).
-3. **Punto 3 — Evaluación de un Clasificador Binario:**
-   - Construcción manual y computacional (`scikit-learn`) de la **Matriz de Confusión** ($\text{TP}, \text{TN}, \text{FP}, \text{FN}$) y cálculo de **Accuracy** ($70\%$), **Precision** ($80\%$), **Recall / Sensibilidad** ($66.67\%$) y **$F_1$-score** ($72.73\%$).
-   - Análisis crítico de escenarios donde la exactitud (*Accuracy*) resulta engañosa: conjuntos de datos altamente desbalanceados y problemas con costos de error asimétricos.
-
-### Taller Comparativo: Redes Neuronales Densas (MLP) vs. Redes Convolucionales (CNN) (`RED_DENSA_CONVOLUCIONAL.ipynb`)
-Implementación, entrenamiento y evaluación comparativa en **TensorFlow / Keras** sobre el conjunto de datos **MNIST** ($60{,}000$ imágenes de entrenamiento y $10{,}000$ de prueba):
-
-1. **Preprocesamiento y Estructuración de Datos:**
-   - Normalización de intensidades de píxeles al rango $[0, 1]$ (`float32`) y adecuación dimensional independiente según la topología de entrada: vectores aplanados de $\mathbb{R}^{784}$ para la red densa y tensores espaciales de $28 \times 28 \times 1$ para la red convolucional.
-2. **Arquitecturas Evaluadas (15 épocas, `batch_size=32`, optimizador `Adam`, `validation_split=0.1`):**
-   - **Red Densa (`model_dense`):** Entrada $(784,) \rightarrow \text{Dense}(64, \text{ReLU}) \rightarrow \text{Dense}(64, \text{ReLU}) \rightarrow \text{Dense}(10, \text{Softmax})$.
-   - **Red Convolucional (`model_conv`):** Entrada $(28, 28, 1) \rightarrow \text{Conv2D}(32, 3\times3, \text{ReLU}, \text{same}) \rightarrow \text{MaxPool2D}(2\times2) \rightarrow \text{Conv2D}(64, 3\times3, \text{ReLU}, \text{same}) \rightarrow \text{MaxPool2D}(2\times2) \rightarrow \text{Flatten} \rightarrow \text{Dense}(10, \text{Softmax})$.
-3. **Comparativa de Rendimiento y Curvas de Aprendizaje:**
-   - Contraste cuantitativo entre entrenamiento y prueba: la **Red Convolucional** alcanza un **Accuracy en prueba de $98.92\%$** ($\text{Loss} = 0.0479$), superando a la **Red Densa** que obtiene **$97.76\%$** ($\text{Loss} = 0.1038$), evidenciando la ventaja de preservar la estructura espacial local mediante filtros convolucionales y *pooling*.
-4. **Pipeline de Inferencia con Imágenes Externas:**
-   - Función automatizada (`predecir_imagen_externa`) para clasificar dígitos manuscritos externos con conversión a escala de grises, redimensionamiento Lanczos ($28 \times 28$), inversión inteligente de fondo claro, limpieza de ruido por umbralización suave y visualización comparativa de distribuciones de probabilidad.
+1. **Google Colab:** desarrollo y ejecución de notebooks en entornos con aceleración de hardware para experimentos numéricos y entrenamiento de modelos.
+2. **Ubuntu:** organización local del repositorio, revisión de archivos académicos, ejecución de scripts de soporte y gestión de versiones con Git.
+3. **Antigravity CLI:** asistencia en el entorno local para estructuración, mantenimiento y verificación de la documentación del repositorio.
+4. **GitHub:** alojamiento del repositorio remoto, trazabilidad del historial de entregas y visualización renderizada de notebooks y documentos Markdown.
 
 ---
 
-## 🛠️ Requisitos y Entorno de Trabajo
+## Uso del script `subir.sh`
 
-El código y los notebooks están desarrollados principalmente en **Python 3.x** utilizando herramientas estándar de Ciencia de Datos y Machine Learning:
+El archivo [subir.sh](./subir.sh) automatiza la secuencia `git add .`, `git commit` y `git push origin main` para agilizar la publicación de actualizaciones en el repositorio remoto.
 
-- **Lenguaje:** Python 3.10+
-- **Entorno interactivo:** Jupyter Notebook / JupyterLab
-- **Librerías principales:**
-  - `numpy`, `scipy` (Cálculo numérico y álgebra lineal)
-  - `pandas` (Manipulación y análisis de datos)
-  - `matplotlib`, `seaborn` (Visualización de datos)
-  - `scikit-learn` (Modelos clásicos de Machine Learning)
-  - `tensorflow` / `pytorch` (Aprendizaje profundo, según requerimiento)
-
-### Instalación rápida de dependencias base
+Con mensaje de commit personalizado:
 
 ```bash
-pip install numpy scipy pandas matplotlib seaborn scikit-learn jupyterlab
+./subir.sh "Descripción del cambio realizado"
 ```
 
----
+Sin parámetros (asigna automáticamente la fecha y hora actual como mensaje de commit):
 
-## 🚀 Uso del Script de Automatización (`subir.sh`)
-
-Para facilitar la actualización del repositorio en GitHub/GitLab, se incluye el script ejecutable `subir.sh`.
-
-### Con mensaje personalizado:
-```bash
-./subir.sh "Entrega del Taller 1: Regresión Lineal y Regularización"
-```
-
-### Sin parámetros (usa automáticamente la fecha y hora actual):
 ```bash
 ./subir.sh
 ```
 
-> **Nota:** Por buenas prácticas de almacenamiento, los conjuntos de datos pesados (`.csv`, `.zip`) y los pesos o modelos serializados (`.pkl`, `.h5`) están excluidos mediante el archivo `.gitignore`.
+Los archivos pesados de datos y modelos serializados (como `.csv`, `.zip`, `.pkl` y `.h5`) se mantienen excluidos del seguimiento mediante [.gitignore](./.gitignore).
