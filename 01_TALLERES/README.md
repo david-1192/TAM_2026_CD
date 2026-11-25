@@ -44,7 +44,7 @@ Sea $`\mathbf{X} \in \mathbb{R}^{N \times P}`$ la matriz de datos de entrada con
 2. **Matriz de covarianza y correlación de Pearson ($784 \times 784$):**
 
 ```math
-\operatorname{Cov} = \frac{1}{N}\mathbf{X}_c^{\top}\mathbf{X}_c, \qquad R_{i,j} = \frac{\operatorname{Cov}_{i,j}}{\sqrt{\operatorname{Cov}_{i,i}\,\operatorname{Cov}_{j,j}}}
+\mathrm{Cov} = \frac{1}{N}\mathbf{X}_c^{\top}\mathbf{X}_c, \qquad R_{i,j} = \frac{\mathrm{Cov}_{i,j}}{\sqrt{\mathrm{Cov}_{i,i}\,\mathrm{Cov}_{j,j}}}
 ```
 
 En la implementación se añade un término pequeño de estabilidad numérica ($`\epsilon = 10^{-10}`$) para evitar divisiones por cero en píxeles de borde con varianza nula.
@@ -72,18 +72,18 @@ K_{i,j} = \exp\!\left(-\gamma \lVert \mathbf{x}_i - \mathbf{x}_j \rVert_2^2\righ
 4. **Covarianza, varianzas y correlación en el espacio del kernel:**
 
 ```math
-\operatorname{Cov}_K = \frac{1}{N}\mathbf{K}_c, \qquad \operatorname{Var}_K = \operatorname{diag}(\operatorname{Cov}_K) = \frac{1}{N}\operatorname{diag}(\mathbf{K}_c)
+\mathrm{Cov}_K = \frac{1}{N}\mathbf{K}_c, \qquad \mathrm{Var}_K = \mathrm{diag}(\mathrm{Cov}_K) = \frac{1}{N}\mathrm{diag}(\mathbf{K}_c)
 ```
 
 ```math
 \mathbf{R}_K = \mathbf{D}^{-1/2}\mathbf{K}_c\mathbf{D}^{-1/2}, \qquad (\mathbf{R}_K)_{i,j} = \frac{(\mathbf{K}_c)_{i,j}}{\sqrt{(\mathbf{K}_c)_{i,i} \cdot (\mathbf{K}_c)_{j,j}} + \epsilon}
 ```
 
-donde $`\mathbf{D} = \operatorname{diag}(\operatorname{diag}(\mathbf{K}_c))`$ y $`\epsilon > 0`$ garantiza estabilidad numérica.
+donde $`\mathbf{D} = \mathrm{diag}(\mathrm{diag}(\mathbf{K}_c))`$ y $`\epsilon > 0`$ garantiza estabilidad numérica.
 
 ### Resultados obtenidos
 
-- Se verificaron las dimensiones esperadas en cada etapa: vector de medias de $(784, 1)$, matrices de covarianza y correlación de características de $(784, 784)$, matriz de kernel lineal de $(2\,000, 2\,000)$ y matrices del kernel gaussiano RBF ($`\mathbf{K}`$, $`\mathbf{K}_c`$, $`\operatorname{Cov}_K`$ y $`\mathbf{R}_K`$) de $(3\,000, 3\,000)$.
+- Se verificaron las dimensiones esperadas en cada etapa: vector de medias de $(784, 1)$, matrices de covarianza y correlación de características de $(784, 784)$, matriz de kernel lineal de $(2\,000, 2\,000)$ y matrices del kernel gaussiano RBF ($`\mathbf{K}`$, $`\mathbf{K}_c`$, $`\mathrm{Cov}_K`$ y $`\mathbf{R}_K`$) de $(3\,000, 3\,000)$.
 - Se generaron mapas de calor comparativos para visualizar la estructura de correlación entre píxeles y la covarianza y correlación entre observaciones en el espacio inducido por el kernel gaussiano.
 
 ---
@@ -101,7 +101,7 @@ Modelar una señal armónica contaminada con ruido blanco gaussiano aditivo (AWG
 1. **Señal de referencia:** muestreo uniforme de $N = 100$ puntos sobre el intervalo $x \in [0, 1]$ para la señal sinusoidal pura:
 
 ```math
-y(x) = \operatorname{sen}(2\pi x)
+y(x) = \mathrm{sen}(2\pi x)
 ```
 
 2. **Simulación de ruido AWGN:** adición de ruido gaussiano $`n \sim \mathcal{N}(0, \sigma^2)`$ controlado por la relación señal-ruido deseada ($`\mathrm{SNR}_{\mathrm{dB}} = 3\text{ dB}`$):

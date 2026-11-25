@@ -112,7 +112,7 @@ Archivo asociado: [PARCIAL_1_TAM_CD.pdf](./PARCIAL_1_TAM_CD.pdf).
 2. **Alineamiento centrado de kernels en RKHS:** deducido a partir del producto interno de Frobenius y las propiedades cíclicas de la traza:
 
 ```math
-\rho_{\mathrm{RKHS}}(\mathbf{K}_X, \mathbf{K}_Y) = \frac{\operatorname{tr}(\mathbf{K}_X \mathbf{H} \mathbf{K}_Y \mathbf{H})}{\sqrt{\operatorname{tr}(\mathbf{K}_X \mathbf{H} \mathbf{K}_X \mathbf{H})\,\operatorname{tr}(\mathbf{K}_Y \mathbf{H} \mathbf{K}_Y \mathbf{H})}}
+\rho_{\mathrm{RKHS}}(\mathbf{K}_X, \mathbf{K}_Y) = \frac{\mathrm{tr}(\mathbf{K}_X \mathbf{H} \mathbf{K}_Y \mathbf{H})}{\sqrt{\mathrm{tr}(\mathbf{K}_X \mathbf{H} \mathbf{K}_X \mathbf{H})\,\mathrm{tr}(\mathbf{K}_Y \mathbf{H} \mathbf{K}_Y \mathbf{H})}}
 ```
 
 3. **Relación en el caso lineal unidimensional ($P = Q = 1$):** se demuestra que para kernels lineales unidimensionales se cumple:
